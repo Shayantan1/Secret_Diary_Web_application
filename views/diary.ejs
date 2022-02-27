@@ -1,0 +1,29 @@
+<%- include('partials/header'); -%>
+
+    <h1 style="font-size: 35px;">Your Diary</h1>
+
+    <% stories.reverse().forEach(function(story){ %>
+        <h1>
+            <%= story.title %>
+        </h1>
+        <p>
+            <%= story.content %>
+        </p>
+
+        <% if(files){ %>
+                  <% files.forEach(function(file) { %>
+                    <div style="text-align:center;">
+
+                      <% if(file.filename===story.image){ %>
+                      <% if(file.isImage ) { %>
+                        <img src="image/<%= file.filename %>" alt="" class="userImg">
+                        <% } else { %>
+                          <%= file.filename %>
+                            <% } %>
+                            <% } %>
+                    </div>
+                    <% }); %>
+                      <% } %>
+                <% }); %>
+
+<%- include('partials/footer'); -%>

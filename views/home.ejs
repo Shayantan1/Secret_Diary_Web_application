@@ -1,0 +1,17 @@
+<%- include('partials/header'); -%>
+
+    <h1>
+        <%= day %>
+    </h1>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+        <form action="/home" method="post" enctype="multipart/form-data">
+            <div>
+                <textarea class="textbox" name="todays_secret" rows="12" placeholder="How was the day?"></textarea>
+            </div>
+            <div class="image_div">
+                <input type="file" name="file" class="image_input">
+            </div>
+
+            <button type="submit" name="button">Add to Diary</button>
+        </form>
+        <%- include('partials/footer'); -%>
